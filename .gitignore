@@ -1,0 +1,7 @@
+*~
+*.sw*
+#ignore thumbnails created by windows
+Thumbs.db
+*.bak
+*.log
+*.dmp
