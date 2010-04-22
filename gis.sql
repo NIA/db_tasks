@@ -14,20 +14,20 @@ CREATE TABLE points (
 
 CREATE TABLE objects (
   id          INTEGER NOT NULL PRIMARY KEY,
-  is_closed   INTEGER(1)
+  is_closed   INTEGER
 );
 
 CREATE TABLE membership (
-  point_id    INTEGER NOT NULL REFERENCE points(id),
-  object_id   INTEGER NOT NULL REFERENCE objects(id),
-  prev_p_id   INTEGER NOT NULL REFERENCE points(id),
+  point_id    INTEGER NOT NULL REFERENCES points(id),
+  object_id   INTEGER NOT NULL REFERENCES objects(id),
+  prev_p_id   INTEGER NOT NULL REFERENCES points(id),
   CONSTRAINT  pk_memb PRIMARY KEY(point_id, object_id)
 );
 
 CREATE TABLE attributes (
-  object_id   INTEGER NOT NULL REFERENCE objects(id),
+  object_id   INTEGER NOT NULL REFERENCES objects(id),
   name        VARCHAR2(20),
   value       VARCHAR2(1024),
-  CONSTRAINT  pk_memb PRIMARY KEY(object_id, name)
+  CONSTRAINT  pk_attr PRIMARY KEY(object_id, name)
 );
   

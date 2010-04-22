@@ -35,25 +35,25 @@ CREATE TABLE sales (
 );
 
 CREATE TABLE authorship (
-  author_id   INTEGER NOT NULL REFERENCE authors(id),
-  product_id  INTEGER NOT NULL REFERENCE products(id)
+  author_id   INTEGER NOT NULL REFERENCES authors(id),
+  product_id  INTEGER NOT NULL REFERENCES products(id)
 );
 
 CREATE TABLE sale_prices (
-  product_id  INTEGER NOT NULL REFERENCE products(id),
-  sale_id     INTEGER NOT NULL REFERENCE sales(id),
+  product_id  INTEGER NOT NULL REFERENCES products(id),
+  sale_id     INTEGER NOT NULL REFERENCES sales(id),
   sale_price  DECIMAL(10,2),
   CONSTRAINT  pk_sale_prices PRIMARY KEY(product_id, sale_id)
 );
 
 CREATE TABLE orders (
   id            INTEGER NOT NULL PRIMARY KEY,
-  customer_id   INTEGER NOT NULL REFERENCE customers(id),
+  customer_id   INTEGER NOT NULL REFERENCES customers(id),
   created_at    TIMESTAMP,
   paid_at       TIMESTAMP,
   shipped_at    TIMESTAMP,
   shipping_lev  INTEGER,
-  shipping_cost DECIMAL(10.2),
+  shipping_cost DECIMAL(10,2),
   shipping_addr VARCHAR2(200),
   billing_addr  VARCHAR2(200),
   status        INTEGER
@@ -61,7 +61,11 @@ CREATE TABLE orders (
 
 
 CREATE TABLE line_items (
-  id          INTEGER NOT NULL PRIMARY KEY,
-  order_id
+  id            INTEGER NOT NULL PRIMARY KEY,
+  order_id      INTEGER NOT NULL REFERENCES orders(id),
+  product_id    INTEGER NOT NULL REFERENCES products(id),
+  quantity      INTEGER,
+  item_princip  DECIMAL(10,2)
+);
   
  

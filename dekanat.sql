@@ -34,19 +34,19 @@ CREATE TABLE courses (
 
 CREATE TABLE year_courses (
   id          INTEGER NOT NULL PRIMARY KEY,
-  course_code INTEGER NOT NULL REFERENCE courses(id),
+  course_code INTEGER NOT NULL REFERENCES courses(code),
   date_start  DATE
 );
 
 CREATE TABLE teaching (
-  teacher_id  INTEGER NOT NULL REFERENCE teachers(id),
-  yc_id       INTEGER NOT NULL REFERENCE year_courses(id)
+  teacher_id  INTEGER NOT NULL REFERENCES teachers(id),
+  yc_id       INTEGER NOT NULL REFERENCES year_courses(id)
 );
 
 CREATE TABLE studying (
-  student_id  INTEGER NOT NULL REFERENCE students(id),
-  yc_id       INTEGER NOT NULL REFERENCE year_courses(id),
-  grade       CHAR
+  student_id  INTEGER NOT NULL REFERENCES students(id),
+  yc_id       INTEGER NOT NULL REFERENCES year_courses(id),
+  grade       CHAR,
   CONSTRAINT  pk_studying PRIMARY KEY(student_id, yc_id)
 );
   
