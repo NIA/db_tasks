@@ -1,0 +1,1 @@
+set NLS_LANG=american_AMERICA.AL32UTF8
