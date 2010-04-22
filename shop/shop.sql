@@ -7,20 +7,21 @@
 
 CREATE TABLE products (
   id          INTEGER NOT NULL PRIMARY KEY,
-  isbn        VARCHAR2(13) UNIQUE,
+  isbn        VARCHAR2(13) NOT NULL UNIQUE,
   list_price  DECIMAL(10,2),
-  name        VARCHAR2(100)
+  name        VARCHAR2(100) NOT NULL,
+  CONSTRAINT  ck_lprice CHECK( list_price >= 0 )
 );
 
 CREATE TABLE authors (
   id          INTEGER NOT NULL PRIMARY KEY,
-  f_name      VARCHAR2(40),
+  f_name      VARCHAR2(40) NOT NULL,
   l_name      VARCHAR2(40)
 );
 
 CREATE TABLE customers (
   id          INTEGER NOT NULL PRIMARY KEY,
-  f_name      VARCHAR2(40),
+  f_name      VARCHAR2(40) NOT NULL,
   l_name      VARCHAR2(40),
   email       VARCHAR2(30),
   address     VARCHAR2(200),
@@ -29,8 +30,8 @@ CREATE TABLE customers (
 
 CREATE TABLE sales (
   id          INTEGER NOT NULL PRIMARY KEY,
-  start_date  DATE,
-  end_date    DATE,
+  start_date  DATE NOT NULL,
+  end_date    DATE NOT NULL,
   CONSTRAINT  ck_dates CHECK( start_date < end_date )
 );
 
@@ -44,6 +45,7 @@ CREATE TABLE sale_prices (
   sale_id     INTEGER NOT NULL REFERENCES sales(id),
   sale_price  DECIMAL(10,2),
   CONSTRAINT  pk_sale_prices PRIMARY KEY(product_id, sale_id)
+  CONSTRAINT  ck_sale_price  CHECK( sale_price >= 0 )
 );
 
 CREATE TABLE orders (
@@ -56,16 +58,17 @@ CREATE TABLE orders (
   shipping_cost DECIMAL(10,2),
   shipping_addr VARCHAR2(200),
   billing_addr  VARCHAR2(200),
-  status        INTEGER
+  status        INTEGER,
+  CONSTRAINT    ck_shipcost CHECK( shipping_cost >= 0 )
 );
-
 
 CREATE TABLE line_items (
   id            INTEGER NOT NULL PRIMARY KEY,
   order_id      INTEGER NOT NULL REFERENCES orders(id),
   product_id    INTEGER NOT NULL REFERENCES products(id),
   quantity      INTEGER,
-  item_princip  DECIMAL(10,2)
+  item_princip  DECIMAL(10,2),
+  CONSTRAINT    ck_quantity CHECK( quantity > 0 ),
+  CONSTRAINT    ck_itemprin CHECK( item_princip >= 0 )
 );
-  
  

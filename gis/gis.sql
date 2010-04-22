@@ -7,14 +7,15 @@
 
 CREATE TABLE points (
   id          INTEGER NOT NULL PRIMARY KEY,
-  latitude    FLOAT,
-  longitude   FLOAT,
-  height      FLOAT
+  latitude    FLOAT NOT NULL,
+  longitude   FLOAT NOT NULL,
+  height      FLOAT NOT NULL,
+  CONSTRAINT  ck_height CHECK( height > 0 )
 );
 
 CREATE TABLE objects (
   id          INTEGER NOT NULL PRIMARY KEY,
-  is_closed   INTEGER
+  is_closed   INTEGER NOT NULL
 );
 
 CREATE TABLE membership (
@@ -26,7 +27,7 @@ CREATE TABLE membership (
 
 CREATE TABLE attributes (
   object_id   INTEGER NOT NULL REFERENCES objects(id),
-  name        VARCHAR2(20),
+  name        VARCHAR2(20) NOT NULL,
   value       VARCHAR2(1024),
   CONSTRAINT  pk_attr PRIMARY KEY(object_id, name)
 );
