@@ -4,4 +4,5 @@
 Thumbs.db
 *.bak
 *.log
+*.bad
 *.dmp

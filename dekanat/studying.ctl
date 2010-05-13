@@ -1,0 +1,6 @@
+LOAD DATA
+INFILE 'studying.dat'
+INTO TABLE studying REPLACE
+FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' TRAILING NULLCOLS
+(student_id,yc_id,grade)
+
