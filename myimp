@@ -1,0 +1,2 @@
+#!/bin/bash
+imp G7305_NOVIKOV@cypok file=$1

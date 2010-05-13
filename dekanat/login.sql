@@ -1,0 +1,12 @@
+SET LINESIZE 170
+SET PAGESIZE 50000
+
+COLUMN first_name   FORMAT A10;
+COLUMN middle_name  FORMAT A15;
+COLUMN last_name    FORMAT A15;
+COLUMN email        FORMAT A20;
+COLUMN phone        FORMAT A7;
+COLUMN room         FORMAT A5;
+
+COLUMN dorm_room    FORMAT A5;
+COLUMN name         FORMAT A10;

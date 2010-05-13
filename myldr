@@ -1,0 +1,2 @@
+#!/bin/bash
+sqlldr G7305_NOVIKOV@cypok control=$1
