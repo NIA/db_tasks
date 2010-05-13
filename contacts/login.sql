@@ -1,0 +1,12 @@
+SET LINESIZE 170
+SET PAGESIZE 50000
+
+COLUMN first_name   FORMAT A10;
+COLUMN last_name    FORMAT A15;
+COLUMN email        FORMAT A15;
+COLUMN phone        FORMAT A7;
+COLUMN zipcode      FORMAT A7;
+COLUMN city         FORMAT A15;
+COLUMN street       FORMAT A15;
+COLUMN building     FORMAT A4;
+COLUMN apartment    FORMAT A5;
