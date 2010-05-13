@@ -10,7 +10,8 @@ CREATE TABLE points (
   latitude    FLOAT NOT NULL,
   longitude   FLOAT NOT NULL,
   height      FLOAT NOT NULL,
-  CONSTRAINT  ck_height CHECK( height > 0 )
+  CONSTRAINT  ck_latit  CHECK( latitude   between -90   and 90  ),
+  CONSTRAINT  ck_longit CHECK( longitude  between -180  and 180 )
 );
 
 CREATE TABLE objects (

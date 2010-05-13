@@ -32,7 +32,7 @@ CREATE TABLE sales (
   id          INTEGER NOT NULL PRIMARY KEY,
   start_date  DATE NOT NULL,
   end_date    DATE NOT NULL,
-  CONSTRAINT  ck_dates CHECK( start_date < end_date )
+  CONSTRAINT  ck_dates CHECK( start_date <= end_date )
 );
 
 CREATE TABLE authorship (
@@ -44,7 +44,7 @@ CREATE TABLE sale_prices (
   product_id  INTEGER NOT NULL REFERENCES products(id),
   sale_id     INTEGER NOT NULL REFERENCES sales(id),
   sale_price  DECIMAL(10,2),
-  CONSTRAINT  pk_sale_prices PRIMARY KEY(product_id, sale_id)
+  CONSTRAINT  pk_sale_prices PRIMARY KEY(product_id, sale_id),
   CONSTRAINT  ck_sale_price  CHECK( sale_price >= 0 )
 );
 
