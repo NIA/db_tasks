@@ -4,7 +4,7 @@ column grade        format A5;
 
 select  s.last_name || ' ' || s.first_name as full_name,
         c.name as course,
-        '' as grade
+        ' ' as grade
 from    students s,
         courses c,
         year_courses yc,

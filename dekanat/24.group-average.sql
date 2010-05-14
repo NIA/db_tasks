@@ -2,9 +2,9 @@ column VARIANT_1    format A10;
 column VARIANT_2    format A10;
 
 select '' as VARIANT_1,
-       sum(t.average)/count(*) as BY_STUDENTS
+       avg(t.average) as BY_STUDENTS
 from   (select  s.id,
-                sum(st.grade)/count(*) as average
+                avg(st.grade) as average
         from    students s,                  
                 courses c,
                 year_courses yc,
@@ -16,5 +16,5 @@ from   (select  s.id,
        ) t;
 
 select  '' as VARIANT_2,
-        sum(st.grade)/count(*) as BY_GRADES
+        avg(st.grade) as BY_GRADES
 from    studying st;

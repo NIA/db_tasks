@@ -6,3 +6,4 @@ Thumbs.db
 *.log
 *.bad
 *.dmp
+.fuse_hidden*
