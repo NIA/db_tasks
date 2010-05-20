@@ -1,0 +1,6 @@
+LOAD DATA
+INFILE 'books.dat'
+INTO TABLE products REPLACE
+FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '"' TRAILING NULLCOLS
+(id, isbn, name, list_price)
+

@@ -1,0 +1,6 @@
+LOAD DATA
+INFILE 'sales.dat'
+INTO TABLE sales REPLACE
+FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '"' TRAILING NULLCOLS
+(id,start_date,end_date,name)
+

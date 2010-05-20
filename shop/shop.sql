@@ -9,14 +9,14 @@ CREATE TABLE products (
   id          INTEGER NOT NULL PRIMARY KEY,
   isbn        VARCHAR2(13) NOT NULL UNIQUE,
   list_price  DECIMAL(10,2),
-  name        VARCHAR2(100) NOT NULL,
+  name        VARCHAR2(500) NOT NULL,
   CONSTRAINT  ck_lprice CHECK( list_price >= 0 )
 );
 
 CREATE TABLE authors (
   id          INTEGER NOT NULL PRIMARY KEY,
-  f_name      VARCHAR2(40) NOT NULL,
-  l_name      VARCHAR2(40)
+  f_name      VARCHAR2(60) NOT NULL,
+  l_name      VARCHAR2(60)
 );
 
 CREATE TABLE customers (
@@ -32,6 +32,7 @@ CREATE TABLE sales (
   id          INTEGER NOT NULL PRIMARY KEY,
   start_date  DATE NOT NULL,
   end_date    DATE NOT NULL,
+  name        VARCHAR(80),
   CONSTRAINT  ck_dates CHECK( start_date <= end_date )
 );
 
@@ -51,10 +52,10 @@ CREATE TABLE sale_prices (
 CREATE TABLE orders (
   id            INTEGER NOT NULL PRIMARY KEY,
   customer_id   INTEGER NOT NULL REFERENCES customers(id),
-  created_at    TIMESTAMP,
-  paid_at       TIMESTAMP,
-  shipped_at    TIMESTAMP,
-  shipping_lev  INTEGER,
+  created_at    DATE,
+  paid_at       DATE,
+  shipped_at    DATE,
+  shipping_lev  VARCHAR(15),
   shipping_cost DECIMAL(10,2),
   shipping_addr VARCHAR2(200),
   billing_addr  VARCHAR2(200),

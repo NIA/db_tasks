@@ -1,0 +1,6 @@
+LOAD DATA
+INFILE 'authorship.dat'
+INTO TABLE authorship REPLACE
+FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '"' TRAILING NULLCOLS
+(product_id, author_id)
+
