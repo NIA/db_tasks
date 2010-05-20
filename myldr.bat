@@ -1,1 +1,1 @@
-sqlldr G7305_NOVIKOV@students control=%1
+sqlldr G7305_NOVIKOV/1234@xe control=%1

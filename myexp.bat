@@ -1,1 +1,1 @@
-exp G7305_NOVIKOV@students file=%1
+exp G7305_NOVIKOV/1234@xe file=%1

@@ -1,1 +1,1 @@
-imp G7305_NOVIKOV@students file=%1
+imp G7305_NOVIKOV/1234@xe file=%1
