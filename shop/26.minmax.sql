@@ -1,3 +1,5 @@
+select * from
+(
 select  day,
         sum(gain) as day_gain
 from
@@ -7,14 +9,14 @@ from
   from    line_items, orders
   where   line_items.order_id = orders.id
 --
-  union
+--  union
 --
-  select  shipped_at as day,
-          shipping_cost as gain
-  from    orders
+--  select  shipped_at as day,
+--          shipping_cost as gain
+--  from    orders
 )
 group by day
-order by sum(gain);
---order by sum(gain) where rownum <= 1
---order by sum(gain) desc where rownum <= 1
+--order by sum(gain) desc
+order by sum(gain) asc
+) where rownum <=1; 
 

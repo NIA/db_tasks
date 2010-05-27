@@ -1,4 +1,4 @@
-select    avg(cost)
+select    to_char(avg(cost),'9999.99') as average
 from
 (
   select    o.id as oid,

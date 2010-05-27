@@ -4,7 +4,7 @@ column VARIANT_2    format A10;
 
 select  '' as VARIANT_1,
         s.last_name || ' ' || s.first_name as full_name,
-        sum(st.grade)/count(*) as average
+        avg(st.grade) as average
 from    students s,                  
         courses c,
         year_courses yc,
@@ -20,7 +20,7 @@ select  '' as VARIANT_2,
         t.average
 from    students s_out,
        (select  s.id,
-                sum(st.grade)/count(*) as average
+                avg(st.grade) as average
         from    students s,                  
                 courses c,
                 year_courses yc,
