@@ -1,8 +1,9 @@
 column street_name format A60
 
 select
-  ' '||a.value as street_name,
-  to_char(len.length, '999999.99') as length
+  ' ' || a.value || ': ' ||
+  to_char(len.length, '999999.99') ||
+  ' м.' as length
 from
   attributes a,
   (
