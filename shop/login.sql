@@ -12,4 +12,8 @@ COLUMN address      FORMAT A24;
 COLUMN shipping_lev FORMAT A10;
 COLUMN shipping_addr FORMAT A24;
 COLUMN billing_addr FORMAT A24;
+COLUMN attribute    FORMAT A10;
+COLUMN old_value    FORMAT A40;
+COLUMN new_value    FORMAT A40;
+COLUMN updated_at   FORMAT A35;
 
