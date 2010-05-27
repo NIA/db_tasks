@@ -1,6 +1,7 @@
 set serveroutput on
 
 declare
+  stmt VARCHAR2(250);
   cursor constraints is
     select * from user_constraints uc
     where uc.table_name not in
@@ -17,18 +18,21 @@ declare
 begin
   for c in constraints
   loop
-    dbms_output.put_line('alter table "'||c.table_name||'" drop constraint "'||c.constraint_name || '"');
-    execute immediate 'alter table "'||c.table_name||'" drop constraint "' || c.constraint_name || '"';
+    stmt := 'alter table "'||c.table_name||'" drop constraint "'||c.constraint_name || '"';
+    dbms_output.put_line(stmt);
+    execute immediate stmt;
   end loop;
   for o in all_but_tables
   loop
-    dbms_output.put_line('drop '||o.object_type||' "'||o.object_name||'"');
-    execute immediate 'drop '||o.object_type||' "'||o.object_name||'"';
+    stmt := 'drop '||o.object_type||' "'||o.object_name||'"';
+    dbms_output.put_line(stmt);
+    execute immediate stmt;
   end loop;
   for t in tables
   loop
-    dbms_output.put_line('drop table "'||t.table_name||'"');
-    execute immediate 'drop table "'||t.table_name||'"';
+    stmt := 'drop table "'||t.table_name||'"';
+    dbms_output.put_line(stmt);
+    execute immediate stmt;
   end loop;
 end;
 /
