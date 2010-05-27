@@ -9,4 +9,4 @@
 
 @echo ----------
 @echo Bad Files:
-@dir /B *.dir
+@dir /B *.bad

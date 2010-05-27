@@ -1,0 +1,6 @@
+LOAD DATA
+INFILE 'attributes.dat'
+INTO TABLE attributes REPLACE
+FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' TRAILING NULLCOLS
+(object_id,name,value)
+

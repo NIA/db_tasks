@@ -1,2 +1,2 @@
 #!/bin/bash
-imp G7305_NOVIKOV@cypok file=$1
+imp G7305_NOVIKOV@students file=$1

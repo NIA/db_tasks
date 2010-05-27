@@ -15,15 +15,13 @@ CREATE TABLE points (
 );
 
 CREATE TABLE objects (
-  id          INTEGER NOT NULL PRIMARY KEY,
-  is_closed   INTEGER NOT NULL
+  id          INTEGER NOT NULL PRIMARY KEY
 );
 
 CREATE TABLE membership (
   point_id    INTEGER NOT NULL REFERENCES points(id),
   object_id   INTEGER NOT NULL REFERENCES objects(id),
-  prev_p_id   INTEGER NOT NULL REFERENCES points(id),
-  CONSTRAINT  pk_memb PRIMARY KEY(point_id, object_id)
+  ind         INTEGER NOT NULL
 );
 
 CREATE TABLE attributes (

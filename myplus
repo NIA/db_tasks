@@ -1,2 +1,2 @@
 #!/bin/bash
-sqlplus G7305_NOVIKOV@cypok
+sqlplus G7305_NOVIKOV@students
